@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import AreaMapWrapper from "./components/AreaMapWrapper";
 
 export default function Home() {
   return (
@@ -445,73 +446,7 @@ export default function Home() {
           </div>
 
           <div className="area-map reveal reveal-right" style={{ "--reveal-delay": "200ms" } as React.CSSProperties}>
-            <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-label="Mapa do Nordeste com Pernambuco, Paraíba e Alagoas destacados">
-              <defs>
-                <linearGradient id="stateGradient" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="#2f4f17" />
-                  <stop offset="100%" stopColor="#1a2b0c" />
-                </linearGradient>
-                <filter id="pinGlow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="4" />
-                </filter>
-              </defs>
-
-              {/* Background context states */}
-              <path className="map-state" d="M 40,80 L 130,75 L 145,180 L 130,310 L 60,330 L 40,260 Z" />
-              <path className="map-state" d="M 130,75 L 290,65 L 360,75 L 380,175 L 350,210 L 220,215 L 145,180 Z" />
-              <path className="map-state" d="M 360,75 L 470,90 L 500,135 L 490,195 L 410,205 L 380,175 Z" />
-              <path className="map-state" d="M 340,400 L 395,395 L 405,455 L 360,470 L 335,440 Z" />
-              <path className="map-state" d="M 60,330 L 130,310 L 220,330 L 290,360 L 340,400 L 335,440 L 360,470 L 380,535 L 280,560 L 130,545 L 50,490 L 35,400 Z" />
-
-              {/* Active highlighted states */}
-              <path className="map-state map-active" d="M 360,210 L 410,205 L 490,195 L 510,225 L 490,260 L 430,265 L 360,250 L 350,225 Z" />
-              <path className="map-state map-active" d="M 145,210 L 220,215 L 350,225 L 360,250 L 430,265 L 490,260 L 495,310 L 470,335 L 350,335 L 220,325 L 130,315 L 130,275 Z" />
-              <path className="map-state map-active" d="M 350,335 L 470,335 L 480,390 L 425,405 L 395,395 L 340,400 L 330,365 Z" />
-
-              {/* Background state labels */}
-              <text className="map-label" x="78" y="200" textAnchor="middle">PI</text>
-              <text className="map-label" x="245" y="155" textAnchor="middle">CE</text>
-              <text className="map-label" x="440" y="155" textAnchor="middle">RN</text>
-              <text className="map-label" x="180" y="465" textAnchor="middle">BA</text>
-              <text className="map-label" x="370" y="440" textAnchor="middle">SE</text>
-
-              {/* Active state labels */}
-              <text className="map-label map-active" x="435" y="240" textAnchor="middle">PARAÍBA</text>
-              <text className="map-label map-active" x="260" y="280" textAnchor="middle">PERNAMBUCO</text>
-              <text className="map-label map-active" x="410" y="375" textAnchor="middle">ALAGOAS</text>
-
-              {/* Decorative coast line */}
-              <path className="map-coast" d="M 510,100 Q 540,200 530,300 Q 520,400 480,470" />
-
-              {/* Pin – João Pessoa, PB */}
-              <g transform="translate(495, 222)">
-                <circle className="pin-pulse" r="7" />
-                <circle className="pin-dot-outer" r="7" />
-                <circle className="pin-dot-inner" r="2.5" />
-              </g>
-              <text x="510" y="226" className="map-label map-active" style={{ fontSize: "11px", letterSpacing: "0.12em" }}>João Pessoa</text>
-
-              {/* Pin – Recife, PE */}
-              <g transform="translate(490, 295)">
-                <circle className="pin-pulse pin-pulse-d1" r="7" />
-                <circle className="pin-dot-outer" r="7" />
-                <circle className="pin-dot-inner" r="2.5" />
-              </g>
-              <text x="505" y="299" className="map-label map-active" style={{ fontSize: "11px", letterSpacing: "0.12em" }}>Recife</text>
-
-              {/* Pin – Maceió, AL */}
-              <g transform="translate(465, 372)">
-                <circle className="pin-pulse pin-pulse-d2" r="7" />
-                <circle className="pin-dot-outer" r="7" />
-                <circle className="pin-dot-inner" r="2.5" />
-              </g>
-              <text x="480" y="376" className="map-label map-active" style={{ fontSize: "11px", letterSpacing: "0.12em" }}>Maceió</text>
-
-              {/* Compass corner */}
-              <g transform="translate(50, 555)">
-                <text className="map-corner">NORDESTE · BR</text>
-              </g>
-            </svg>
+            <AreaMapWrapper />
           </div>
         </div>
       </div>
