@@ -17,7 +17,6 @@ export default function Home() {
           />
           <div className="nav-logo-text">
             JS Representações
-            <span>Especialistas em Motopeças</span>
           </div>
         </a>
         <div className="nav-links">
