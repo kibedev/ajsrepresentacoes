@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -c \"C:/Users/joao/.claude/projects/c--Users-joao-Desktop-Sites-jsrepresentacoes/37d89702-de3f-4371-a534-2612dc9d7b2d.jsonl\")",
+      "Read(//c/Users/joao/.claude/projects/c--Users-joao-Desktop-Sites-jsrepresentacoes/**)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"const fs=require\\('fs'\\),buf=fs.readFileSync\\('public/imagens/anderson/anderson-watermark.png'\\);console.log\\('w:',buf.readUInt32BE\\(16\\),'h:',buf.readUInt32BE\\(20\\)\\);\")",
+      "Read(//c/Users/joao/AppData/Local/Temp/3563f1e3-e25a-4993-872a-1370874ba682_JS Representa_es\\(4\\).zip.682/download/marcas-representadas/**)",
+      "Read(//c/Users/joao/AppData/Local/Temp/**)",
+      "Bash(npx tsc *)",
+      "Bash(git --version)",
+      "Bash(git config *)",
+      "PowerShell(gh --version 2>&1)",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ]
+  }
+}
