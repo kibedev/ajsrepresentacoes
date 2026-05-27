@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JS Representações — Site Institucional
 
-## Getting Started
+![Hero — JS Representações](./hero.png)
 
-First, run the development server:
+> Site institucional da **JS Representações**, empresa especializada em representação comercial de motopeças no Nordeste do Brasil, com mais de 18 anos de atuação em Pernambuco, Paraíba e Alagoas.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+🚀 **Deploy:** [jsrepresentacoes-site.vercel.app](https://jsrepresentacoes-site.vercel.app)
+
+---
+
+## Sobre o Projeto
+
+Site institucional desenvolvido para apresentar a história, o portfólio de marcas e os diferenciais da JS Representações, empresa fundada em 2007 por Anderson Santana. O objetivo é gerar credibilidade junto a lojistas do segmento de motopeças e facilitar o contato comercial.
+
+---
+
+## Funcionalidades
+
+- Apresentação institucional com história do fundador
+- Vitrine das marcas representadas (Rinaldi, Delta, Control Seals, EBF, Stallion, Coyote, Circuit, Renascença, Zouil, FAR Rafaela)
+- Seção de pilares e diferenciais da empresa
+- Área de cobertura geográfica (PE, PB e AL)
+- Links diretos para contato via WhatsApp, e-mail e Instagram
+- Design responsivo para mobile e desktop
+
+---
+
+## Stack
+
+| Tecnologia | Uso |
+|---|---|
+| **Next.js** | Framework principal (React) |
+| **Vercel** | Hospedagem e deploy contínuo |
+| **TypeScript** | Tipagem estática |
+| **Tailwind CSS** | Estilização |
+
+---
+
+## Estrutura de Seções
+
+```
+/
+├── Hero          → Apresentação principal com estatísticas
+├── #about        → História de Anderson Santana
+├── #marcas       → Portfólio de marcas representadas
+├── #pillars      → Os 3 pilares: Expertise, Parceria, Presença
+├── #trust        → Razões para escolher a JS Representações
+├── #coverage     → Área de atuação (mapa PE · PB · AL)
+└── #contact      → Links de contato
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Rodando Localmente
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Clone o repositório
+git clone https://github.com/kibedev/jsrepresentacoes.git
+cd jsrepresentacoes
 
-## Learn More
+# Instale as dependências
+npm install
 
-To learn more about Next.js, take a look at the following resources:
+# Inicie o servidor de desenvolvimento
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Acesse [http://localhost:3000](http://localhost:3000).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+O projeto está configurado para deploy automático na **Vercel**. Qualquer push na branch `main` aciona um novo deploy.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Build de produção
+npm run build
+
+# Iniciar em modo produção
+npm start
+```
+
+---
+
+## Contato
+
+- 📱 WhatsApp: [+55 81 99354-6117](https://wa.me/5581993546117)
+- 📧 E-mail: andersonjsrepresentacoes@gmail.com
+- 📸 Instagram: [@js.representacaoo](https://www.instagram.com/js.representacaoo/)
+
+---
+
+© 2025 JS Representações. Todos os direitos reservados.
