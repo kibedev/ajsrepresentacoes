@@ -43,7 +43,7 @@ export default function Home() {
             <p className="hero-subtitle">
               Mais de 18 anos conectando as melhores marcas do Brasil aos
               lojistas de Pernambuco, Paraíba e Alagoas. Não somos apenas
-              representantes — somos consultores especialistas no segmento de
+              representantes, somos consultores especialistas no segmento de
               duas rodas.
             </p>
             <a href="#about" className="hero-cta">
@@ -133,22 +133,21 @@ export default function Home() {
               <div className="section-tag">Nossa história</div>
               <h2>Uma trajetória construída com dedicação e conhecimento</h2>
               <p>
-                Anderson Santana começou sua jornada no mundo das duas rodas aos
-                16 anos, em Catende, interior de Pernambuco. Desde então, nunca
-                fez outra coisa: sua vida inteira foi dedicada ao segmento de
-                motopeças.
+                Anderson Santana entrou no mundo das duas rodas aos 16 anos, em
+                Catende, interior de Pernambuco. De lá pra cá, nunca fez outra
+                coisa: a vida inteira foi dedicada ao segmento de motopeças.
               </p>
               <p>
-                Em 2007, quando atuava como gerente de uma concessionária Honda,
-                recebeu o convite que mudaria sua trajetória. Aceitou o desafio
-                de trabalhar como preposto e começar do zero — construindo
-                carteira de clientes, dominando produtos e, principalmente,
-                aprendendo a entender pessoas.
+                Em 2007, quando trabalhava como gerente de uma concessionária
+                Honda, surgiu o convite que mudou tudo: aceitou o desafio de
+                atuar como preposto e começar do zero, construindo carteira de
+                clientes, dominando produtos e, principalmente, aprendendo a
+                entender pessoas.
               </p>
               <p>
-                Após superar a perda da principal pasta do escritório em
-                2010/2011, Anderson tinha duas escolhas: recuar ou avançar.
-                Escolheu avançar. Foi a feiras e convenções em São Paulo, firmou
+                Depois de perder a principal pasta do escritório em 2010/2011,
+                Anderson tinha duas escolhas: recuar ou seguir em frente.
+                Escolheu seguir. Foi a feiras e convenções em São Paulo, firmou
                 novas parcerias, abriu a JS Representações e foi conquistando,
                 uma a uma, as melhores marcas do setor.
               </p>
@@ -157,12 +156,12 @@ export default function Home() {
               <div className="quote-block">
                 <p>
                   &ldquo;Hoje não me considero um representante, mas sim um
-                  Consultor de Vendas — um especialista no segmento de motopeças
+                  Consultor de Vendas, um especialista no segmento de motopeças
                   que estuda muito e tem um perfil de sempre auxiliar o cliente
                   no que ele está precisando.&rdquo;
                 </p>
                 <div className="quote-author">
-                  — Anderson Santana, fundador da JS Representações
+                  Anderson Santana, Fundador da JS Representações
                 </div>
               </div>
               <p
@@ -173,12 +172,11 @@ export default function Home() {
                   marginTop: "1.5rem",
                 }}
               >
-                Hoje, a JS Representações representa 10 dos melhores portfólios
+                Hoje a JS Representações trabalha com 10 dos melhores portfólios
                 do Brasil, atendendo lojistas em Pernambuco, Paraíba e Alagoas
-                com a mesma postura que sempre norteou Anderson:{" "}
+                com a mesma postura que sempre guiou Anderson:{" "}
                 <strong>respeito, transparência e honestidade</strong>. O
-                cliente sai de cada negociação com a certeza de que fez a
-                escolha certa.
+                cliente sai de cada negociação sabendo que fez a escolha certa.
               </p>
             </div>
           </div>

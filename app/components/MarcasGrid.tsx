@@ -18,9 +18,9 @@ const brands: Brand[] = [
     tags: ["Pneus de moto", "Linha completa", "Fabricação nacional"],
   },
   {
-    src: "/parceiros/delta.png", alt: "Delta", cat: "Peças e Componentes",
-    desc: "Componentes e peças de reposição para o segmento de duas rodas, com foco em durabilidade e ampla cobertura de aplicações.",
-    tags: ["Reposição", "Componentes", "Ampla aplicação"],
+    src: "/parceiros/delta.png", alt: "Delta", cat: "Capas de Chuva",
+    desc: "Especialista em capas de chuva para motociclistas, com modelos desenvolvidos para proteção real contra intempéries, durabilidade e praticidade no dia a dia.",
+    tags: ["Capas de chuva", "Proteção", "Motociclistas"],
   },
   {
     src: "/parceiros/control.png", alt: "Control Seals", cat: "Retentores e Vedações",
@@ -113,12 +113,15 @@ export default function MarcasGrid() {
         </div>
 
         <div className="marca-detail" aria-hidden={active ? "false" : "true"}>
-          <div
-            className="detail-logo"
-            style={lastBrand.current ? {
-              backgroundImage: `url(${lastBrand.current.src})`,
-            } : undefined}
-          />
+          <div className="detail-logo">
+            {lastBrand.current && (
+              <img
+                src={lastBrand.current.src}
+                alt={lastBrand.current.alt}
+                className="detail-logo-img"
+              />
+            )}
+          </div>
           <div className="detail-info">
             {lastBrand.current && (
               <>
