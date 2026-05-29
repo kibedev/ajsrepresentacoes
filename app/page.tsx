@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import AreaMapWrapper from "./components/AreaMapWrapper";
+import CountUp from "./components/CountUp";
+import MarcasGrid from "./components/MarcasGrid";
 
 export default function Home() {
   return (
@@ -85,19 +87,19 @@ export default function Home() {
               </div>
               <div className="profile-stats">
                 <div className="stat-item">
-                  <div className="stat-num">18+</div>
+                  <div className="stat-num"><CountUp end={18} suffix="+" /></div>
                   <div className="stat-label">Anos como representante</div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-num">3</div>
+                  <div className="stat-num"><CountUp end={3} /></div>
                   <div className="stat-label">Estados atendidos</div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-num">28</div>
+                  <div className="stat-num"><CountUp end={28} /></div>
                   <div className="stat-label">Anos no segmento</div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-num">Top 10</div>
+                  <div className="stat-num"><CountUp end={10} prefix="Top " /></div>
                   <div className="stat-label">Dos melhores do Brasil</div>
                 </div>
               </div>
@@ -198,59 +200,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="marcas-grid">
-            {[
-              { src: "/parceiros/rinaldi.png", alt: "Rinaldi" },
-              { src: "/parceiros/delta.png", alt: "Delta" },
-              { src: "/parceiros/control.png", alt: "Control Seals" },
-              { src: "/parceiros/rafaela.png", alt: "FAR Rafaela" },
-              { src: "/parceiros/ebf.png", alt: "EBF" },
-              { src: "/parceiros/stallion.png", alt: "Stallion" },
-              { src: "/parceiros/coyote.png", alt: "Coyote" },
-              { src: "/parceiros/circuit.png", alt: "Circuit Equipment" },
-              { src: "/parceiros/renascenca.png", alt: "Renascença" },
-              { src: "/parceiros/zouil.png", alt: "Zouil" },
-            ].map(({ src, alt }, i) => (
-              <div
-                key={alt}
-                className="reveal"
-                style={{ "--reveal-delay": `${i * 40}ms` } as React.CSSProperties}
-              >
-                <div className="marca-card">
-                  <Image
-                    src={src}
-                    alt={alt}
-                    fill
-                    sizes="(max-width: 540px) 50vw, (max-width: 900px) 33vw, 20vw"
-                    style={{ objectFit: "cover" }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="marcas-footer reveal" style={{ "--reveal-delay": "200ms" } as React.CSSProperties}>
-            <div className="marcas-stats">
-              <div>
-                <div className="marcas-stat-num">10+</div>
-                <div className="marcas-stat-lbl">Marcas representadas</div>
-              </div>
-              <div>
-                <div className="marcas-stat-num">3</div>
-                <div className="marcas-stat-lbl">Estados de atuação</div>
-              </div>
-              <div>
-                <div className="marcas-stat-num">18+</div>
-                <div className="marcas-stat-lbl">Anos de experiência</div>
-              </div>
-            </div>
-            <a href="#contact" className="marcas-cta">
-              Fale com a gente
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
-            </a>
-          </div>
+          <MarcasGrid />
         </div>
       </section>
 
