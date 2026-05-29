@@ -14,7 +14,11 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+}
 
 body {
   background: var(--off-white);
@@ -23,6 +27,7 @@ body {
   font-size: 16px;
   line-height: 1.7;
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 h1, h2, .nav-logo-text, .profile-name, .pillar-number, .pillar-title,
