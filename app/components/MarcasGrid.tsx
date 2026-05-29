@@ -113,17 +113,12 @@ export default function MarcasGrid() {
         </div>
 
         <div className="marca-detail" aria-hidden={active ? "false" : "true"}>
-          <div className="detail-logo">
-            {lastBrand.current && (
-              <Image
-                src={lastBrand.current.src}
-                alt={lastBrand.current.alt}
-                fill
-                sizes="40vw"
-                style={{ objectFit: "cover" }}
-              />
-            )}
-          </div>
+          <div
+            className="detail-logo"
+            style={lastBrand.current ? {
+              backgroundImage: `url(${lastBrand.current.src})`,
+            } : undefined}
+          />
           <div className="detail-info">
             {lastBrand.current && (
               <>
