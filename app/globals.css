@@ -632,12 +632,21 @@ h2 {
 .area-map {
   position: relative;
   width: 100%;
+  max-width: 100%;
   border-radius: 16px;
   overflow: hidden;
+  clip-path: inset(0 round 16px);
   border: 1px solid rgba(76,175,26,0.2);
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
   isolation: isolate;
   z-index: 0;
+}
+.area-map .leaflet-container,
+.area-map .leaflet-map-pane,
+.area-map .leaflet-tile-pane,
+.area-map .leaflet-overlay-pane {
+  overflow: hidden !important;
+  max-width: 100% !important;
 }
 .area-map .leaflet-container {
   border-radius: 16px;
