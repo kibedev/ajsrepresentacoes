@@ -1,0 +1,28 @@
+PROMPT PRA COLAR NO CLAUDE
+==========================
+
+Tenho uma seção de "Marcas Representadas" no meu site com uma grade de logos
+(cards quadrados). Quero adicionar uma interação:
+
+COMPORTAMENTO
+Ao passar o mouse sobre um card, a grade atrás deve escurecer e um painel deve
+sobrepor a área da grade. Nesse painel, o logo da marca aparece à ESQUERDA
+(ocupando todo o lado) e as informações da marca aparecem à DIREITA (categoria,
+nome, descrição e chips de destaque). Ao mover o mouse entre cards, o conteúdo
+do painel troca na hora; ao sair da área, o painel fecha com transição suave.
+
+REQUISITOS TÉCNICOS
+- HTML + CSS + JavaScript puro (ou adapte pro meu framework: React/Next/Vue)
+- O painel deve ser position:absolute sobre a grade (sem causar pulo de layout)
+- Use data-attributes em cada card: data-name, data-cat, data-desc,
+  data-tags (separados por |)
+- Em telas pequenas (mobile/touch), desabilite o painel de hover
+- Transições suaves de opacity + scale
+- Mantenha o padrão visual: fundo escuro #0b0d0a, detalhes em verde-lima #b5ee3a
+
+ARQUIVO DE REFERÊNCIA
+Em anexo está o "marcas-representadas.html" — uma implementação pronta em HTML
+puro que faz exatamente isso. Use como base e adapte pro meu projeto.
+
+(Se for React/Next, peça: "converta para um componente React mantendo o mesmo
+comportamento e estilo".)

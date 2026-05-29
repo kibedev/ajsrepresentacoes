@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>JS Representações — Marcas Representadas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #0b0d0a;
+    color: #f4f4ee;
+    font-family: 'Manrope', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===================== SECTION ===================== */
+  .marcas {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 120px 64px;
+    position: relative;
+  }
+
+  .marcas-header {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: end;
+    margin-bottom: 64px;
+  }
+  .marcas-header .kicker {
+    font-size: 13px;
+    letter-spacing: 0.28em;
+    color: #b5ee3a;
+    font-weight: 700;
+    margin-bottom: 22px;
+  }
+  .marcas-header h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 1.05;
+    margin: 0;
+    letter-spacing: -0.01em;
+    color: #fff;
+    max-width: 600px;
+  }
+  .marcas-header h2 em {
+    font-style: italic;
+    font-weight: 600;
+    color: #b5ee3a;
+  }
+  .marcas-header .lead {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #a1a69a;
+    margin: 0;
+    max-width: 380px;
+  }
+
+  /* ===================== Logo grid ===================== */
+  .marcas-grid-wrap {
+    position: relative;
+  }
+  .marcas-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    transition: opacity 0.35s ease, filter 0.35s ease;
+  }
+  /* When detail is open, dim the grid behind */
+  .marcas-grid-wrap.is-open .marcas-grid {
+    opacity: 0.25;
+    filter: saturate(0.5);
+  }
+  .marca-card {
+    aspect-ratio: 1 / 1;
+    background: transparent;
+    border: 1px solid #1f2418;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    cursor: default;
+    position: relative;
+  }
+  .marca-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(181, 238, 58, 0.6);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(181, 238, 58, 0.2);
+  }
+  .marca-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .marca-card:hover img {
+    transform: scale(1.05);
+  }
+  .marca-card.is-active {
+    border-color: rgba(181, 238, 58, 0.6);
+    box-shadow: 0 0 0 1px rgba(181, 238, 58, 0.3);
+  }
+
+  /* ===================== Detail panel ===================== */
+  .marca-detail {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 0;
+    background: #0e110b;
+    border: 1px solid rgba(181, 238, 58, 0.35);
+    border-radius: 18px;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.97);
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    z-index: 5;
+  }
+  .marcas-grid-wrap.is-open .marca-detail {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+  .marca-detail .detail-logo {
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .marca-detail .detail-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .marca-detail .detail-info {
+    padding: 48px 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .marca-detail .detail-cat {
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #b5ee3a;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .marca-detail .detail-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 1.05;
+    color: #fff;
+    margin: 0 0 18px;
+    letter-spacing: -0.01em;
+  }
+  .marca-detail .detail-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #a1a69a;
+    margin: 0 0 28px;
+    max-width: 440px;
+  }
+  .marca-detail .detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .marca-detail .detail-tags span {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #d6dacf;
+    padding: 8px 16px;
+    border: 1px solid #2a2f22;
+    border-radius: 999px;
+    background: rgba(181, 238, 58, 0.04);
+  }
+
+  /* ===================== Bottom strip — small count + CTA ===================== */
+  .marcas-footer {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid #22271e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .marcas-stats {
+    display: flex;
+    gap: 48px;
+  }
+  .stat .num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 1;
+    color: #b5ee3a;
+    letter-spacing: -0.01em;
+  }
+  .stat .lbl {
+    font-size: 11px;
+    color: #a1a69a;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+  .marcas-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #b5ee3a;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    border: 1px solid rgba(181, 238, 58, 0.4);
+    border-radius: 999px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .marcas-cta:hover {
+    background: rgba(181, 238, 58, 0.1);
+    transform: translateX(4px);
+  }
+  .marcas-cta svg { width: 14px; height: 14px; transition: transform 0.2s; }
+  .marcas-cta:hover svg { transform: translateX(4px); }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .marcas { padding: 80px 24px; }
+    .marcas-header {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+    .marcas-header h2 { font-size: 38px; }
+    .marcas-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .marca-card { padding: 16px; }
+    /* On touch / small screens the hover panel is disabled */
+    .marca-detail { display: none !important; }
+    .marcas-grid-wrap.is-open .marcas-grid { opacity: 1; filter: none; }
+    .marcas-stats { gap: 28px; }
+    .stat .num { font-size: 28px; }
+  }
+  @media (max-width: 540px) {
+    .marcas-grid { grid-template-columns: repeat(2, 1fr); }
+    .marcas-footer { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<section class="marcas">
+  <div class="marcas-header">
+    <div>
+      <div class="kicker">PORTFÓLIO DE MARCAS</div>
+      <h2>Marcas líderes que <em>confiam</em> no nosso trabalho.</h2>
+    </div>
+    <p class="lead">Representamos no Nordeste fabricantes consolidados em pneus, amortecedores, retentores, retrovisores e acessórios para o segmento de duas rodas.</p>
+  </div>
+
+  <div class="marcas-grid-wrap" id="marcasWrap">
+    <div class="marcas-grid">
+      <div class="marca-card"
+        data-name="Rinaldi"
+        data-cat="Pneus"
+        data-desc="Um dos maiores fabricantes brasileiros de pneus para motocicletas. Linha completa para uso urbano, trail e alta performance — qualidade reconhecida em todo o país."
+        data-tags="Pneus de moto|Linha completa|Fabricação nacional">
+        <img src="assets/parceiros/rinaldi.png" alt="Rinaldi" />
+      </div>
+      <div class="marca-card"
+        data-name="Delta"
+        data-cat="Peças e Componentes"
+        data-desc="Componentes e peças de reposição para o segmento de duas rodas, com foco em durabilidade e ampla cobertura de aplicações."
+        data-tags="Reposição|Componentes|Ampla aplicação">
+        <img src="assets/parceiros/delta.png" alt="Delta" />
+      </div>
+      <div class="marca-card"
+        data-name="Control Seals"
+        data-cat="Retentores e Vedações"
+        data-desc="Especialista em retentores e sistemas de vedação para motores e suspensões, garantindo proteção contra vazamentos e maior vida útil dos componentes."
+        data-tags="Retentores|Vedações|Suspensão">
+        <img src="assets/parceiros/control.png" alt="Control Seals" />
+      </div>
+      <div class="marca-card"
+        data-name="FAR Rafaela"
+        data-cat="Amortecedores"
+        data-desc="Amortecedores e componentes de suspensão para motocicletas, oferecendo estabilidade, conforto e segurança em diferentes condições de pilotagem."
+        data-tags="Amortecedores|Suspensão|Conforto">
+        <img src="assets/parceiros/rafaela.png" alt="FAR Rafaela Amortecedores" />
+      </div>
+      <div class="marca-card"
+        data-name="EBF Helmets"
+        data-cat="Capacetes"
+        data-desc="Capacetes desenvolvidos com tecnologia e design, unindo segurança certificada e estilo para o motociclista exigente."
+        data-tags="Capacetes|Segurança|Certificado">
+        <img src="assets/parceiros/ebf.png" alt="EBF" />
+      </div>
+      <div class="marca-card"
+        data-name="Stallion"
+        data-cat="Moto Peças"
+        data-desc="Linha ampla de peças e acessórios para motos, atendendo desde a manutenção básica até a personalização, com bom custo-benefício."
+        data-tags="Moto peças|Acessórios|Custo-benefício">
+        <img src="assets/parceiros/stallion.png" alt="Stallion" />
+      </div>
+      <div class="marca-card"
+        data-name="Coyote"
+        data-cat="Acessórios"
+        data-desc="Acessórios e itens de performance para o universo das duas rodas, com identidade forte e foco no público que busca atitude e estilo."
+        data-tags="Acessórios|Performance|Estilo">
+        <img src="assets/parceiros/coyote.png" alt="Coyote" />
+      </div>
+      <div class="marca-card"
+        data-name="Circuit Equipment"
+        data-cat="Equipamentos"
+        data-desc="Equipamentos e acessórios para pilotagem, desenvolvidos para oferecer proteção e desempenho dentro e fora das pistas."
+        data-tags="Equipamentos|Proteção|Performance">
+        <img src="assets/parceiros/circuit.png" alt="Circuit Equipment" />
+      </div>
+      <div class="marca-card"
+        data-name="Renascença"
+        data-cat="Retrovisores"
+        data-desc="Retrovisores projetados para sua segurança, com qualidade comprovada e ampla gama de modelos para diferentes motocicletas."
+        data-tags="Retrovisores|Segurança|Qualidade">
+        <img src="assets/parceiros/renascenca.png" alt="Retrovisores Renascença" />
+      </div>
+      <div class="marca-card"
+        data-name="Zouil"
+        data-cat="Acessórios"
+        data-desc="Acessórios e itens de reposição para motos, combinando praticidade e qualidade para o dia a dia do lojista e do motociclista."
+        data-tags="Acessórios|Reposição|Praticidade">
+        <img src="assets/parceiros/zouil.png" alt="Zouil" />
+      </div>
+    </div>
+
+    <!-- Detail panel (populated on hover) -->
+    <div class="marca-detail" id="marcaDetail" aria-hidden="true">
+      <div class="detail-logo"><img id="detailImg" alt="" /></div>
+      <div class="detail-info">
+        <div class="detail-cat" id="detailCat"></div>
+        <h3 class="detail-name" id="detailName"></h3>
+        <p class="detail-desc" id="detailDesc"></p>
+        <div class="detail-tags" id="detailTags"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marcas-footer">
+    <div class="marcas-stats">
+      <div class="stat">
+        <div class="num">10+</div>
+        <div class="lbl">Marcas representadas</div>
+      </div>
+      <div class="stat">
+        <div class="num">3</div>
+        <div class="lbl">Estados de atuação</div>
+      </div>
+      <div class="stat">
+        <div class="num">12+</div>
+        <div class="lbl">Anos de experiência</div>
+      </div>
+    </div>
+    <a href="#contato" class="marcas-cta">
+      Conhecer o catálogo completo
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var wrap = document.getElementById('marcasWrap');
+    var detail = document.getElementById('marcaDetail');
+    var img = document.getElementById('detailImg');
+    var cat = document.getElementById('detailCat');
+    var name = document.getElementById('detailName');
+    var desc = document.getElementById('detailDesc');
+    var tags = document.getElementById('detailTags');
+    var cards = wrap.querySelectorAll('.marca-card');
+    var hideTimer = null;
+
+    function open(card) {
+      clearTimeout(hideTimer);
+      cards.forEach(function (c) { c.classList.remove('is-active'); });
+      card.classList.add('is-active');
+
+      var cardImg = card.querySelector('img');
+      img.src = cardImg.getAttribute('src');
+      img.alt = card.getAttribute('data-name') || '';
+      cat.textContent = card.getAttribute('data-cat') || '';
+      name.textContent = card.getAttribute('data-name') || '';
+      desc.textContent = card.getAttribute('data-desc') || '';
+
+      tags.innerHTML = '';
+      var t = (card.getAttribute('data-tags') || '').split('|').filter(Boolean);
+      t.forEach(function (label) {
+        var s = document.createElement('span');
+        s.textContent = label.trim();
+        tags.appendChild(s);
+      });
+
+      wrap.classList.add('is-open');
+      detail.setAttribute('aria-hidden', 'false');
+    }
+
+    function close() {
+      wrap.classList.remove('is-open');
+      detail.setAttribute('aria-hidden', 'true');
+      cards.forEach(function (c) { c.classList.remove('is-active'); });
+    }
+
+    cards.forEach(function (card) {
+      card.addEventListener('mouseenter', function () { open(card); });
+    });
+
+    // Keep open while hovering the panel; close when leaving the whole area
+    wrap.addEventListener('mouseleave', function () {
+      hideTimer = setTimeout(close, 120);
+    });
+    wrap.addEventListener('mouseenter', function () {
+      clearTimeout(hideTimer);
+    });
+  })();
+</script>
+
+</body>
+</html>
