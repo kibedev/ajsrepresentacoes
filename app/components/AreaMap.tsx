@@ -11,11 +11,11 @@ const STATE_CODES = [
 ];
 
 const highlightStyle: L.PathOptions = {
-  fillColor: "#4caf1a",
-  fillOpacity: 0.25,
-  color: "#4caf1a",
+  fillColor: "#1e6b0a",
+  fillOpacity: 0.75,
+  color: "#5dbe2a",
   weight: 2,
-  opacity: 0.9,
+  opacity: 1,
 };
 
 function createLabelIcon(name: string) {
@@ -23,16 +23,16 @@ function createLabelIcon(name: string) {
     className: "",
     html: `<span style="
       color:#fff;
-      font-weight:800;
-      font-size:13px;
-      letter-spacing:0.10em;
+      font-weight:900;
+      font-size:15px;
+      letter-spacing:0.12em;
       text-transform:uppercase;
       white-space:nowrap;
-      text-shadow:0 1px 3px rgba(0,0,0,1),0 0 8px rgba(0,0,0,0.9);
+      text-shadow:0 1px 4px rgba(0,0,0,1),0 0 10px rgba(0,0,0,1);
       pointer-events:none;
     ">${name}</span>`,
-    iconSize: [140, 18],
-    iconAnchor: [70, 9],
+    iconSize: [160, 20],
+    iconAnchor: [80, 10],
   });
 }
 
@@ -53,8 +53,8 @@ export default function AreaMap() {
 
   return (
     <MapContainer
-      bounds={[[-10.7, -41.5], [-5.8, -34.8]]}
-      boundsOptions={{ padding: [24, 24] }}
+      bounds={[[-11.5, -43.5], [-4.5, -34.0]]}
+      boundsOptions={{ padding: [16, 16] }}
       scrollWheelZoom={false}
       zoomControl={false}
       dragging={false}
